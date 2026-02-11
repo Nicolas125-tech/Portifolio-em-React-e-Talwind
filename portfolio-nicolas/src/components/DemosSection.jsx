@@ -21,6 +21,15 @@ const DSPDemo = () => {
   const analyserRef = useRef(null);
   const animationRef = useRef(null);
 
+  const stopSound = () => {
+    if (oscillatorRef.current) {
+      oscillatorRef.current.stop();
+      oscillatorRef.current.disconnect();
+    }
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    setIsPlaying(false);
+  };
+
   useEffect(() => {
     return () => stopSound(); // Cleanup
   }, []);
@@ -45,15 +54,6 @@ const DSPDemo = () => {
     oscillatorRef.current.start();
     setIsPlaying(true);
     drawVisualizer();
-  };
-
-  const stopSound = () => {
-    if (oscillatorRef.current) {
-      oscillatorRef.current.stop();
-      oscillatorRef.current.disconnect();
-    }
-    if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    setIsPlaying(false);
   };
 
   const updateFrequency = (val) => {
@@ -170,6 +170,26 @@ const DSPDemo = () => {
 };
 
 // 2. KANBAN TASKFLOW (Funcional com Estado Local)
+const ColumnComponent = ({ title, status, icon: Icon, color, tasks, moveTask, deleteTask }) => (
+  <div className="flex-1 min-w-[200px] bg-slate-900/50 rounded-lg p-3 border border-slate-700">
+    <div className={`flex items-center gap-2 mb-3 pb-2 border-b border-slate-700 font-bold ${color}`}>
+      <Icon size={16} /> {title} <span className="ml-auto bg-slate-800 text-xs px-2 py-0.5 rounded text-slate-400">{tasks.filter(t => t.status === status).length}</span>
+    </div>
+    <div className="space-y-2">
+      {tasks.filter(t => t.status === status).map(task => (
+        <div key={task.id} className="bg-slate-800 p-3 rounded border border-slate-700 shadow-sm hover:border-cyan-500/50 transition-colors group">
+          <div className="text-sm text-slate-200 mb-2">{task.title}</div>
+          <div className="flex justify-between items-center opacity-50 group-hover:opacity-100 transition-opacity">
+            <button disabled={status === 'todo'} onClick={() => moveTask(task.id, -1)} className="hover:text-cyan-400 disabled:opacity-30"><ArrowLeft size={14}/></button>
+            <button onClick={() => deleteTask(task.id)} className="hover:text-red-400"><Trash2 size={14}/></button>
+            <button disabled={status === 'done'} onClick={() => moveTask(task.id, 1)} className="hover:text-cyan-400 disabled:opacity-30"><ArrowRight size={14}/></button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const KanbanDemo = () => {
   const [tasks, setTasks] = useState([
     { id: 1, title: 'Planejar Banco de Dados', status: 'todo' },
@@ -201,26 +221,6 @@ const KanbanDemo = () => {
 
   const deleteTask = (id) => setTasks(tasks.filter(t => t.id !== id));
 
-  const Column = ({ title, status, icon: Icon, color }) => (
-    <div className="flex-1 min-w-[200px] bg-slate-900/50 rounded-lg p-3 border border-slate-700">
-      <div className={`flex items-center gap-2 mb-3 pb-2 border-b border-slate-700 font-bold ${color}`}>
-        <Icon size={16} /> {title} <span className="ml-auto bg-slate-800 text-xs px-2 py-0.5 rounded text-slate-400">{tasks.filter(t => t.status === status).length}</span>
-      </div>
-      <div className="space-y-2">
-        {tasks.filter(t => t.status === status).map(task => (
-          <div key={task.id} className="bg-slate-800 p-3 rounded border border-slate-700 shadow-sm hover:border-cyan-500/50 transition-colors group">
-            <div className="text-sm text-slate-200 mb-2">{task.title}</div>
-            <div className="flex justify-between items-center opacity-50 group-hover:opacity-100 transition-opacity">
-              <button disabled={status === 'todo'} onClick={() => moveTask(task.id, -1)} className="hover:text-cyan-400 disabled:opacity-30"><ArrowLeft size={14}/></button>
-              <button onClick={() => deleteTask(task.id)} className="hover:text-red-400"><Trash2 size={14}/></button>
-              <button disabled={status === 'done'} onClick={() => moveTask(task.id, 1)} className="hover:text-cyan-400 disabled:opacity-30"><ArrowRight size={14}/></button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     <div className="p-6 bg-slate-800 rounded-xl border border-slate-700">
       <div className="flex justify-between items-center mb-6">
@@ -238,9 +238,9 @@ const KanbanDemo = () => {
       </div>
       
       <div className="flex gap-4 overflow-x-auto pb-2">
-        <Column title="A Fazer" status="todo" icon={Database} color="text-slate-400" />
-        <Column title="Em Progresso" status="in-progress" icon={Code} color="text-blue-400" />
-        <Column title="Concluído" status="done" icon={Award} color="text-green-400" />
+        <ColumnComponent title="A Fazer" status="todo" icon={Database} color="text-slate-400" tasks={tasks} moveTask={moveTask} deleteTask={deleteTask} />
+        <ColumnComponent title="Em Progresso" status="in-progress" icon={Code} color="text-blue-400" tasks={tasks} moveTask={moveTask} deleteTask={deleteTask} />
+        <ColumnComponent title="Concluído" status="done" icon={Award} color="text-green-400" tasks={tasks} moveTask={moveTask} deleteTask={deleteTask} />
       </div>
     </div>
   );
