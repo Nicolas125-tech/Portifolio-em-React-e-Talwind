@@ -4,6 +4,7 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { TimelineSection } from './components/TimelineSection';
 import { CertificationsSection } from './components/CertificationsSection';
+import { DemosSection } from './components/DemosSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { MessageCircle } from 'lucide-react';
@@ -20,6 +21,7 @@ function App() {
       <SkillsSection />
       <TimelineSection />
       <CertificationsSection />
+      <DemosSection />
       <ContactSection />
       <Footer />
 
