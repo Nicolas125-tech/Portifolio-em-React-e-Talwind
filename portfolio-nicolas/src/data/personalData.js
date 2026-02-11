@@ -6,6 +6,7 @@ export const personalData = {
   location: "Londrina, PR",
   email: "nicolasbissoqui@gmail.com",
   phone: "43 984445767",
+  whatsappNumber: "5543984445767",
   linkedin: "https://www.linkedin.com/in/nicolas-mandarino-7787761b8",
   github: "https://github.com/nicolas125-tech",
   oldPortfolio: "https://nicolas125-tech.github.io/Portifolio/#inicio",
