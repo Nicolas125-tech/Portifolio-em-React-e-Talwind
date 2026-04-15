@@ -59,3 +59,27 @@ export const allCertifications = [
   "Desenvolvimento Android com Kotlin - 27h",
   "Inglês para Devs (True Way) - 38h"
 ];
+
+export const projects = [
+  {
+    id: 1,
+    title: "ChikGuard",
+    description: "Sistema de monitoramento para criação de frangos com visão computacional, contagem em tempo real e detecção de anomalias.",
+    tech: ["Python", "React", "Node.js", "Docker", "Supabase"],
+    githubUrl: "https://github.com/Nicolas125-tech/ChikGuard-Original"
+  },
+  {
+    id: 2,
+    title: "TripPlanner",
+    description: "Aplicação Full Stack para planejamento de viagens.",
+    tech: ["React", "Java", "Spring Boot"],
+    githubUrl: "https://github.com/Nicolas125-tech/TripPlanner-React-e-Java"
+  },
+  {
+    id: 3,
+    title: "Dicionário Musical",
+    description: "Um dicionário de termos musicais construído com React.",
+    tech: ["React", "JavaScript", "CSS"],
+    githubUrl: "https://github.com/Nicolas125-tech/dicionario-musical-react"
+  }
+];

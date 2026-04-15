@@ -15,6 +15,7 @@ export const Navbar = () => {
     { name: 'Início', href: '#home' },
     { name: 'Sobre', href: '#about' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Projetos', href: '#projects' },
     { name: 'Trajetória', href: '#timeline' },
     { name: 'Contato', href: '#contact' },
   ];
