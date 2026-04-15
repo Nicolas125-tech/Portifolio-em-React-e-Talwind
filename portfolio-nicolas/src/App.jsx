@@ -2,6 +2,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
+import { ProjectsSection } from './components/ProjectsSection';
 import { TimelineSection } from './components/TimelineSection';
 import { CertificationsSection } from './components/CertificationsSection';
 import { ContactSection } from './components/ContactSection';
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <AboutSection />
       <SkillsSection />
+      <ProjectsSection />
       <TimelineSection />
       <CertificationsSection />
       <ContactSection />
