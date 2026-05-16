@@ -22,10 +22,17 @@ export const experience = [
   },
   {
     id: 2,
-    role: "Help Desk",
+    role: "Estágio em Help Desk",
     company: "Empresa de TI",
-    period: "2026 - Atualmente",
+    period: "2026",
     description: "Suporte técnico, resolução de problemas de TI e atendimento ao cliente com foco em eficiência e satisfação."
+  },
+  {
+    id: 3,
+    role: "Analista Técnico Computacional",
+    company: "Agili Software",
+    period: "Maio 2026 - Atual",
+    description: "Análise, diagnóstico e resolução de problemas técnicos e lógicos em sistemas de software. Suporte técnico avançado, auxiliando na utilização das soluções tecnológicas da empresa. Elaboração de consultas e manipulação de base de dados (SQL) para análise de cenários e correção de falhas. Interação com a equipe de desenvolvimento para reporte de bugs e melhoria contínua dos sistemas."
   }
 ];
 
