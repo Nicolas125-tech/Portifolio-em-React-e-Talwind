@@ -1,11 +1,8 @@
-import os
 import re
+import sys
 
-print("Running modification on root src dir")
-# Assuming the user wants it at the root of the repo (e.g. if the original project is not inside portfolio-nicolas)
-if os.path.exists("src/data/personalData.js"):
-    print("Found src/data/personalData.js at root level!")
-    with open("src/data/personalData.js", "r") as f:
+try:
+    with open("/app/portfolio-nicolas/src/data/personalData.js", "r") as f:
         content = f.read()
 
     new_content = content.replace(
@@ -24,7 +21,9 @@ if os.path.exists("src/data/personalData.js"):
     pattern = r"(export const experience = \[.*?)(\n\];)"
     new_content = re.sub(pattern, r"\1" + new_entry + r"\2", new_content, flags=re.DOTALL)
 
-    with open("src/data/personalData.js", "w") as f:
+    with open("/app/portfolio-nicolas/src/data/personalData.js", "w") as f:
         f.write(new_content)
-else:
-    print("Not found at root level")
+    print("Success")
+except Exception as e:
+    print(f"Error: {e}")
+    sys.exit(1)
