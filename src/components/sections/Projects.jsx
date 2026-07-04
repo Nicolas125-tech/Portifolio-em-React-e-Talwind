@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Folder } from 'lucide-react';
+import { Github, ExternalLink, Folder, Sparkles } from 'lucide-react';
 import { projects } from '../../data/personalData';
 import { SectionTitle } from '../ui/SectionTitle';
 import { GlassCard } from '../ui/GlassCard';
@@ -18,7 +18,22 @@ export const Projects = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <AnimatedSection key={project.id} delay={index * 150}>
-              <GlassCard className="h-full flex flex-col group">
+              <GlassCard
+                className={`h-full flex flex-col group relative transition-all duration-300 ${
+                  project.featured
+                    ? 'border-primary-500/30 shadow-lg shadow-primary-500/5 ring-1 ring-primary-500/20'
+                    : ''
+                }`}
+                glow={project.featured}
+              >
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div className="absolute -top-3 right-6 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-primary-500 to-primary-700 text-white shadow-lg shadow-primary-500/20 border border-primary-400/20 z-10">
+                    <Sparkles size={12} className="animate-pulse" />
+                    <span>{project.badgeText || 'Destaque'}</span>
+                  </div>
+                )}
+
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-3 rounded-xl bg-primary-500/10">

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, ChevronDown, MapPin, Code2, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown, MapPin, Code2, Sparkles, Download } from 'lucide-react';
 import { personalData } from '../../data/personalData';
 import { useEffect, useState } from 'react';
 
@@ -61,7 +61,7 @@ export const Hero = () => {
 
         {/* Name */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-slide-up">
-          <span className="text-dark-100">Olá, sou </span>
+          <span className="text-dark-100">Olá, soy </span>
           <span className="gradient-text">{personalData.name}</span>
         </h1>
 
@@ -81,16 +81,23 @@ export const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 animate-slide-up no-print" style={{ animationDelay: '0.5s' }}>
           <a
             href="#projetos"
             className="group px-8 py-3.5 bg-gradient-to-r from-primary-500 to-primary-700 rounded-xl text-white font-semibold hover:from-primary-400 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-105"
           >
             Ver Projetos
           </a>
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-2 px-8 py-3.5 glass rounded-xl text-primary-300 font-semibold hover:bg-primary-500/10 transition-all duration-300 hover:scale-105"
+          >
+            <Download size={18} />
+            Baixar CV (PDF)
+          </button>
           <a
             href="#contato"
-            className="px-8 py-3.5 glass rounded-xl text-primary-300 font-semibold hover:bg-primary-500/10 transition-all duration-300 hover:scale-105"
+            className="px-8 py-3.5 glass rounded-xl text-dark-300 font-semibold hover:bg-dark-800/50 transition-all duration-300 hover:scale-105"
           >
             Fale Comigo
           </a>

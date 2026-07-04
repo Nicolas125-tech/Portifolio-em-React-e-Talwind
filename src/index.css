@@ -106,3 +106,105 @@ body {
     linear-gradient(90deg, rgba(51, 141, 255, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
+
+/* Print styles for generating clean PDF resume */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #1a1a24 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide interactive elements, decorations and navigation */
+  nav, 
+  #navbar, 
+  footer, 
+  .no-print,
+  #hero .absolute,
+  #hero bottom-8,
+  #hero .flex.items-center.justify-center.gap-4, /* social icons */
+  a[href="#sobre"] {
+    display: none !important;
+  }
+  
+  /* Reset background grids and colors */
+  .bg-grid, 
+  .bg-dark-950, 
+  main, 
+  section {
+    background: transparent !important;
+    background-image: none !important;
+    padding: 10px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  /* Make containers full width */
+  .max-w-4xl, 
+  .max-w-5xl, 
+  .max-w-6xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Adjust Hero name for black text */
+  .gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #1457e1 !important;
+    color: #1457e1 !important;
+    font-weight: bold !important;
+  }
+
+  /* Re-style cards to be flat black & white border boxes */
+  .glass, 
+  .glass-strong {
+    background: #f8f9fa !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    color: #1a1a24 !important;
+    margin-bottom: 12px !important;
+    page-break-inside: avoid !important;
+    padding: 16px !important;
+  }
+
+  /* Text color corrections for readability */
+  h1, h2, h3, h4 {
+    color: #0f172a !important;
+    page-break-after: avoid !important;
+  }
+
+  p, span, li, div {
+    color: #334155 !important;
+  }
+
+  .text-primary-300, 
+  .text-primary-400, 
+  .text-dark-300, 
+  .text-dark-400,
+  .text-dark-500 {
+    color: #475569 !important;
+  }
+
+  /* Layout adjustments */
+  .grid {
+    display: block !important;
+  }
+  
+  .grid > div {
+    margin-bottom: 20px !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Force display of collapsed/accordion elements */
+  #certificacoes .overflow-hidden {
+    max-height: none !important;
+    opacity: 1 !important;
+    display: block !important;
+  }
+}
+
