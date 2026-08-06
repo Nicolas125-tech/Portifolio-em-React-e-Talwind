@@ -32,8 +32,10 @@ export const Hero = () => {
           setDisplayedText(currentRole.slice(0, displayedText.length - 1));
         }, 40);
       } else {
-        setIsDeleting(false);
-        setRoleIndex((prev) => (prev + 1) % roles.length);
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }, 0);
       }
     }
 
