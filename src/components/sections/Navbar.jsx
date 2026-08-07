@@ -11,13 +11,14 @@ const navLinks = [
   { label: 'Contato', href: '#contato' },
 ];
 
+const sections = navLinks.map(l => l.href.substring(1));
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    const sections = navLinks.map(l => l.href.substring(1));
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
