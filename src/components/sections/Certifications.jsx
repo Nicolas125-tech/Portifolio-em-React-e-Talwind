@@ -19,6 +19,8 @@ const categoryColors = {
   'Dados, Inteligência Artificial & Qualidade': 'from-purple-500 to-violet-500',
 };
 
+const totalCertifications = allCertifications.reduce((acc, cat) => acc + cat.items.length, 0);
+
 export const Certifications = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -96,7 +98,7 @@ export const Certifications = () => {
             <p className="text-dark-500 text-sm">
               Total de{' '}
               <span className="text-primary-400 font-semibold">
-                {allCertifications.reduce((acc, cat) => acc + cat.items.length, 0)}
+                {totalCertifications}
               </span>{' '}
               certificações
             </p>
