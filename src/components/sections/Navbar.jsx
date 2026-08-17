@@ -19,18 +19,25 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.getBoundingClientRect().top <= 150) {
-          setActiveSection(sections[i]);
-          break;
-        }
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const el = document.getElementById(sections[i]);
+            if (el && el.getBoundingClientRect().top <= 150) {
+              setActiveSection(sections[i]);
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
