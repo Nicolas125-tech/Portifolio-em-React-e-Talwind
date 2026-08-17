@@ -1,5 +1,13 @@
-⚡ Optimize Navbar scroll event handling
+🧹 Refactor age calculation logic
 
-💡 What: Implemented throttling via requestAnimationFrame and cached DOM elements in the scroll event listener inside Navbar.jsx. Also added the `{ passive: true }` flag to the event listener.
-🎯 Why: Repeated DOM queries (document.getElementById) inside a fast-firing scroll event handler can cause expensive layout thrashing and high CPU usage.
-📊 Measured Improvement: Benchmarked a simulated scroll event using 100,000 iterations. The baseline execution time was 126.99ms with 100,000 DOM calls. The optimized version ran in 19.59ms with only 7 DOM calls. This represents an 84.57% performance improvement in execution time and a dramatic reduction in DOM queries.
+🎯 What:
+Refactored the embedded `calculateAge` function inside `About.jsx` out into its own dedicated utility module at `src/utils/calculateAge.js`.
+
+💡 Why:
+This improves maintainability and separation of concerns by pulling out a generic date-calculation utility from a React UI component. It also enables thorough and deterministic unit testing.
+
+✅ Verification:
+Added comprehensive tests covering edges cases (normal years, birthdays happening early, today, or later in the year, leap years, missing data). Mocked the system clock for reliable execution. Ran `npx vitest run` and everything passed successfully. Verified it doesn't break `About.jsx` rendering. Cleaned up untracked files used during reasoning steps.
+
+✨ Result:
+A cleaner UI component and an independently testable, robust date utility function.
