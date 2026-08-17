@@ -19,18 +19,40 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    // Cache to store DOM elements to avoid repeated querying
+    const cachedElements = {};
+
+    const updateNavbar = () => {
       setScrolled(window.scrollY > 50);
 
       for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+        const sectionId = sections[i];
+
+        // Lazy load the elements into cache if they don't exist yet
+        if (!cachedElements[sectionId]) {
+          cachedElements[sectionId] = document.getElementById(sectionId);
+        }
+
+        const el = cachedElements[sectionId];
+
         if (el && el.getBoundingClientRect().top <= 150) {
-          setActiveSection(sections[i]);
+          setActiveSection(sectionId);
           break;
         }
       }
+      ticking = false;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    };
+
+    // passive: true improves scrolling performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
