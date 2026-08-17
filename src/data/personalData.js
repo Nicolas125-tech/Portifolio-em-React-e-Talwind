@@ -42,6 +42,7 @@ export const experience = [
     role: "Analista Técnico Computacional",
     company: "Agili Software",
     period: "Maio 2026 - Atual",
+    isCurrent: true,
     description: "Análise, diagnóstico e resolução de problemas técnicos e lógicos em sistemas de software. Suporte técnico avançado, auxiliando na utilização das soluções tecnológicas da empresa. Elaboração de consultas e manipulação de base de dados (SQL) para análise de cenários e correção de falhas. Interação com a equipe de desenvolvimento para reporte de bugs e melhoria contínua dos sistemas."
   },
   {
@@ -49,6 +50,7 @@ export const experience = [
     role: "Técnico de Suporte (Help Desk)",
     company: "Helpdesk Londrina",
     period: "Janeiro 2026 - Atual",
+    isCurrent: true,
     description: "Prestação de suporte técnico de hardware e software para utilizadores. Manutenção preventiva e corretiva de computadores. Diagnóstico e resolução de problemas em redes e sistemas operativos."
   },
   {
@@ -56,6 +58,7 @@ export const experience = [
     role: "Professor de Música (Violino e Piano)",
     company: "Espaço Musical",
     period: "Janeiro 2023 - Outubro 2025",
+    isCurrent: false,
     description: "Lecionou aulas de violino e piano, desenvolvendo materiais didáticos personalizados. Condução de ensaios e prática de orquestra com grupos de alunos."
   }
 ];

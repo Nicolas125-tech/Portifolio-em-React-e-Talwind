@@ -25,11 +25,11 @@ export const Experience = () => {
                   {/* Timeline dot */}
                   <div className="relative z-10 flex-shrink-0">
                     <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center ${
-                      index === 0
+                      exp.isCurrent
                         ? 'bg-gradient-to-br from-primary-500 to-primary-700 shadow-lg shadow-primary-500/30'
                         : 'glass border border-dark-700'
                     }`}>
-                      <Briefcase size={index === 0 ? 24 : 20} className={index === 0 ? 'text-white' : 'text-dark-400'} />
+                      <Briefcase size={exp.isCurrent ? 24 : 20} className={exp.isCurrent ? 'text-white' : 'text-dark-400'} />
                     </div>
                   </div>
 
@@ -46,7 +46,7 @@ export const Experience = () => {
                       </div>
                     </div>
                     <p className="text-dark-400 text-sm leading-relaxed">{exp.description}</p>
-                    {index === 0 && (
+                    {exp.isCurrent && (
                       <div className="mt-3">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
