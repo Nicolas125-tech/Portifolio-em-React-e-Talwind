@@ -1,5 +1,5 @@
-⚡ Optimize scroll event handling in Navbar
+⚡ optimize About component by caching age calculation
 
-💡 What: Moved the `navLinks.map()` call outside of the `handleScroll` function to precompute the section names.
-🎯 Why: The mapping operation created a new array on every scroll event, which was unnecessary as `navLinks` is static. Moving it outside avoids redundant array allocations and string manipulations on each scroll tick.
-📊 Measured Improvement: Benchmark of 1M iterations simulating the computation inside vs outside the scroll handler shows an improvement from ~180ms down to ~2.5ms (a ~71x speedup). This reduces memory pressure and CPU usage during scrolling, making the UX smoother.
+💡 What: Wrapped `calculateAge(personalData.birthDate)` inside a `useMemo` block with an empty dependency array in the `About` component, as the birthDate is a static constant imported from an external module.
+🎯 Why: Prevents recalculation of age upon every re-render of the component, which eliminates redundant CPU usage and avoids unnecessary blocking of the main thread during render cycles.
+📊 Measured Improvement: Verified the performance through benchmark tests where repeated re-renders (1000 and 500 loops) confirmed rendering happens slightly faster by skipping repeated data parsing and date instantiations for unchanging inputs.
