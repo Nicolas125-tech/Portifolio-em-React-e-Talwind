@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { User, GraduationCap, Briefcase, Calendar, Globe, IdCard, Plane, Languages } from 'lucide-react';
 import { personalData, education } from '../../data/personalData';
 import { SectionTitle } from '../ui/SectionTitle';
@@ -6,7 +7,7 @@ import { AnimatedSection } from '../ui/AnimatedSection';
 import { calculateAge } from '../../utils/calculateAge';
 
 export const About = () => {
-  const age = calculateAge(personalData.birthDate);
+  const age = useMemo(() => calculateAge(personalData.birthDate), []);
 
   return (
     <section id="sobre" className="section-padding relative">

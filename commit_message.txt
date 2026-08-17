@@ -1,13 +1,5 @@
-🧹 Refactor age calculation logic
+⚡ optimize About component by caching age calculation
 
-🎯 What:
-Refactored the embedded `calculateAge` function inside `About.jsx` out into its own dedicated utility module at `src/utils/calculateAge.js`.
-
-💡 Why:
-This improves maintainability and separation of concerns by pulling out a generic date-calculation utility from a React UI component. It also enables thorough and deterministic unit testing.
-
-✅ Verification:
-Added comprehensive tests covering edges cases (normal years, birthdays happening early, today, or later in the year, leap years, missing data). Mocked the system clock for reliable execution. Ran `npx vitest run` and everything passed successfully. Verified it doesn't break `About.jsx` rendering. Cleaned up untracked files used during reasoning steps.
-
-✨ Result:
-A cleaner UI component and an independently testable, robust date utility function.
+💡 What: Wrapped `calculateAge(personalData.birthDate)` inside a `useMemo` block with an empty dependency array in the `About` component, as the birthDate is a static constant imported from an external module.
+🎯 Why: Prevents recalculation of age upon every re-render of the component, which eliminates redundant CPU usage and avoids unnecessary blocking of the main thread during render cycles.
+📊 Measured Improvement: Verified the performance through benchmark tests where repeated re-renders (1000 and 500 loops) confirmed rendering happens slightly faster by skipping repeated data parsing and date instantiations for unchanging inputs.
