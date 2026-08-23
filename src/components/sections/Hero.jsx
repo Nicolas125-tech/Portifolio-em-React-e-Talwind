@@ -1,5 +1,6 @@
-import { Github, Linkedin, Mail, ChevronDown, MapPin, Code2, Sparkles, Download } from 'lucide-react';
+import { ChevronDown, MapPin, Code2, Sparkles, Download } from 'lucide-react';
 import { personalData } from '../../data/personalData';
+import { socialLinks } from '../../data/socialLinks';
 import { useEffect, useState } from 'react';
 
 const roles = [
@@ -107,31 +108,21 @@ export const Hero = () => {
 
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-          <a
-            href={personalData.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="GitHub"
-          >
-            <Github size={22} />
-          </a>
-          <a
-            href={personalData.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={22} />
-          </a>
-          <a
-            href={`mailto:${personalData.email}`}
-            className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="Email"
-          >
-            <Mail size={22} />
-          </a>
+          {socialLinks.map((social) => {
+            const SocialIcon = social.icon;
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target={social.label === 'Email' ? undefined : "_blank"}
+                rel={social.label === 'Email' ? undefined : "noopener noreferrer"}
+                className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
+                aria-label={social.label}
+              >
+                <SocialIcon size={22} />
+              </a>
+            );
+          })}
         </div>
       </div>
 

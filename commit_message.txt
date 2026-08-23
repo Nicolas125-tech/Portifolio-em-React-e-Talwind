@@ -1,8 +1,0 @@
-🧪 add unit tests for SkillBadge component
-
-🎯 What: Added unit tests for SkillBadge UI component in src/components/ui/SkillBadge.test.jsx.
-📊 Coverage:
-- Verified rendering of the skill name.
-- Verified element tag (span) and CSS class styling.
-- Verified graceful handling of empty or missing props.
-✨ Result: Improved test coverage and reliability for UI components.

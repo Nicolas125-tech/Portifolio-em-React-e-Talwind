@@ -1,5 +1,5 @@
-import { Heart, Github, Linkedin, Mail } from 'lucide-react';
-import { personalData } from '../../data/personalData';
+import { Heart } from 'lucide-react';
+import { socialLinks } from '../../data/socialLinks';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,31 +22,21 @@ export const Footer = () => {
           </p>
 
           <div className="flex items-center gap-3">
-            <a
-              href={personalData.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-dark-500 hover:text-primary-400 transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={18} />
-            </a>
-            <a
-              href={personalData.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-dark-500 hover:text-primary-400 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={18} />
-            </a>
-            <a
-              href={`mailto:${personalData.email}`}
-              className="text-dark-500 hover:text-primary-400 transition-colors"
-              aria-label="Email"
-            >
-              <Mail size={18} />
-            </a>
+            {socialLinks.map((social) => {
+              const SocialIcon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.label === 'Email' ? undefined : "_blank"}
+                  rel={social.label === 'Email' ? undefined : "noopener noreferrer"}
+                  className="text-dark-500 hover:text-primary-400 transition-colors"
+                  aria-label={social.label}
+                >
+                  <SocialIcon size={18} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Send, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ExternalLink } from 'lucide-react';
 import { personalData } from '../../data/personalData';
+import { socialLinks } from '../../data/socialLinks';
 import { SectionTitle } from '../ui/SectionTitle';
 import { GlassCard } from '../ui/GlassCard';
 import { AnimatedSection } from '../ui/AnimatedSection';
@@ -28,22 +29,10 @@ const contactLinks = [
   },
 ];
 
-const socialLinks = [
-  {
-    icon: Github,
-    label: 'GitHub',
-    href: personalData.github,
-    username: 'Nicolas125-tech',
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
-    href: personalData.linkedin,
-    username: 'Nicolas Mandarino',
-  },
-];
-
 export const Contact = () => {
+  // Filter out Email from socialLinks since it's already in contactLinks and we want just Github and LinkedIn here
+  const filteredSocialLinks = socialLinks.filter(link => link.label !== 'Email');
+
   return (
     <section id="contato" className="section-padding relative">
       <div className="max-w-5xl mx-auto">
@@ -98,7 +87,7 @@ export const Contact = () => {
 
               <div className="space-y-4">
                 <div className="space-y-3">
-                  {socialLinks.map((social) => {
+                  {filteredSocialLinks.map((social) => {
                     const SocialIcon = social.icon;
                     return (
                       <a
