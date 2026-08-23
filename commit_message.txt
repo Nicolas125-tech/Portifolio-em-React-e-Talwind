@@ -1,5 +1,8 @@
-⚡ optimize About component by caching age calculation
+🧪 add unit tests for SkillBadge component
 
-💡 What: Wrapped `calculateAge(personalData.birthDate)` inside a `useMemo` block with an empty dependency array in the `About` component, as the birthDate is a static constant imported from an external module.
-🎯 Why: Prevents recalculation of age upon every re-render of the component, which eliminates redundant CPU usage and avoids unnecessary blocking of the main thread during render cycles.
-📊 Measured Improvement: Verified the performance through benchmark tests where repeated re-renders (1000 and 500 loops) confirmed rendering happens slightly faster by skipping repeated data parsing and date instantiations for unchanging inputs.
+🎯 What: Added unit tests for SkillBadge UI component in src/components/ui/SkillBadge.test.jsx.
+📊 Coverage:
+- Verified rendering of the skill name.
+- Verified element tag (span) and CSS class styling.
+- Verified graceful handling of empty or missing props.
+✨ Result: Improved test coverage and reliability for UI components.
