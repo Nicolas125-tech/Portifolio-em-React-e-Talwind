@@ -5,8 +5,8 @@ import { AnimatedSection } from './AnimatedSection';
 describe('AnimatedSection Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.resetModules();
 
-    // Default mock setup that acts as a constructor
     const mockIntersectionObserver = vi.fn(function() {
       this.observe = vi.fn();
       this.unobserve = vi.fn();
@@ -20,26 +20,27 @@ describe('AnimatedSection Component', () => {
     delete window.IntersectionObserver;
   });
 
-  it('renders children correctly and applies initial hidden styles', () => {
+  it('renders children correctly and applies initial hidden styles', async () => {
+    const { AnimatedSection: FreshAnimatedSection } = await import('./AnimatedSection');
     render(
-      <AnimatedSection>
+      <FreshAnimatedSection>
         <div data-testid="child-element-1">Child Content 1</div>
-      </AnimatedSection>
+      </FreshAnimatedSection>
     );
 
     const childElement = screen.getByTestId('child-element-1');
     expect(childElement).toBeInTheDocument();
 
-    // The parent div should have the initial styles (opacity 0, translateY 40px)
     const wrapperElement = childElement.parentElement;
     expect(wrapperElement).toHaveStyle({ opacity: '0', transform: 'translateY(40px)' });
   });
 
-  it('applies custom className and transitionDelay', () => {
+  it('applies custom className and transitionDelay', async () => {
+    const { AnimatedSection: FreshAnimatedSection } = await import('./AnimatedSection');
     render(
-      <AnimatedSection className="custom-class" delay={200}>
+      <FreshAnimatedSection className="custom-class" delay={200}>
         <div data-testid="child-element-2">Child Content 2</div>
-      </AnimatedSection>
+      </FreshAnimatedSection>
     );
 
     const wrapperElement = screen.getByTestId('child-element-2').parentElement;
@@ -47,8 +48,7 @@ describe('AnimatedSection Component', () => {
     expect(wrapperElement).toHaveStyle({ transitionDelay: '200ms' });
   });
 
-  it('becomes visible when intersection observer triggers isIntersecting', () => {
-    // Setup a mock observer instance where we can capture the callback
+  it('becomes visible when intersection observer triggers isIntersecting', async () => {
     let observerCallback;
     const mockObserve = vi.fn();
     const mockUnobserve = vi.fn();
@@ -60,28 +60,26 @@ describe('AnimatedSection Component', () => {
       this.disconnect = vi.fn();
     });
 
+    const { AnimatedSection: FreshAnimatedSection } = await import('./AnimatedSection');
+
     render(
-      <AnimatedSection>
+      <FreshAnimatedSection>
         <div data-testid="child-element-3">Child Content 3</div>
-      </AnimatedSection>
+      </FreshAnimatedSection>
     );
 
     const wrapperElement = screen.getByTestId('child-element-3').parentElement;
     expect(wrapperElement).toHaveStyle({ opacity: '0' });
 
-    // Trigger the intersection observer callback
     act(() => {
       observerCallback([{ isIntersecting: true, target: wrapperElement }]);
     });
 
-    // Check that styles are updated to visible
     expect(wrapperElement).toHaveStyle({ opacity: '1', transform: 'translateY(0)' });
-
-    // Check that unobserve was called
     expect(mockUnobserve).toHaveBeenCalledWith(wrapperElement);
   });
 
-  it('disconnects observer on unmount', () => {
+  it('disconnects shared observer when all observed elements unmount', async () => {
     const mockDisconnect = vi.fn();
 
     window.IntersectionObserver = vi.fn(function() {
@@ -90,14 +88,44 @@ describe('AnimatedSection Component', () => {
       this.disconnect = mockDisconnect;
     });
 
+    const { AnimatedSection: FreshAnimatedSection } = await import('./AnimatedSection');
+
     const { unmount } = render(
-      <AnimatedSection>
+      <FreshAnimatedSection>
         <div data-testid="child-element-4">Child Content 4</div>
-      </AnimatedSection>
+      </FreshAnimatedSection>
     );
 
     unmount();
 
     expect(mockDisconnect).toHaveBeenCalled();
+  });
+
+  it('shares a single IntersectionObserver instance across multiple AnimatedSection components', async () => {
+    const observerConstructSpy = vi.fn(function() {
+      this.observe = vi.fn();
+      this.unobserve = vi.fn();
+      this.disconnect = vi.fn();
+    });
+
+    window.IntersectionObserver = observerConstructSpy;
+
+    const { AnimatedSection: FreshAnimatedSection } = await import('./AnimatedSection');
+
+    render(
+      <>
+        <FreshAnimatedSection>
+          <div>Section 1</div>
+        </FreshAnimatedSection>
+        <FreshAnimatedSection>
+          <div>Section 2</div>
+        </FreshAnimatedSection>
+        <FreshAnimatedSection>
+          <div>Section 3</div>
+        </FreshAnimatedSection>
+      </>
+    );
+
+    expect(observerConstructSpy).toHaveBeenCalledTimes(1);
   });
 });
