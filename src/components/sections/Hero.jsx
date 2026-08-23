@@ -9,6 +9,28 @@ const roles = [
   'Java Developer',
 ];
 
+const socialLinks = [
+  {
+    href: personalData.github,
+    icon: <Github size={22} />,
+    ariaLabel: 'GitHub',
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  },
+  {
+    href: personalData.linkedin,
+    icon: <Linkedin size={22} />,
+    ariaLabel: 'LinkedIn',
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  },
+  {
+    href: `mailto:${personalData.email}`,
+    icon: <Mail size={22} />,
+    ariaLabel: 'Email'
+  }
+];
+
 export const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -107,31 +129,18 @@ export const Hero = () => {
 
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-          <a
-            href={personalData.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="GitHub"
-          >
-            <Github size={22} />
-          </a>
-          <a
-            href={personalData.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={22} />
-          </a>
-          <a
-            href={`mailto:${personalData.email}`}
-            className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="Email"
-          >
-            <Mail size={22} />
-          </a>
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              {...(link.target ? { target: link.target } : {})}
+              {...(link.rel ? { rel: link.rel } : {})}
+              className="p-3 rounded-xl glass text-dark-300 hover:text-primary-400 hover:bg-primary-500/10 transition-all duration-300 hover:scale-110"
+              aria-label={link.ariaLabel}
+            >
+              {link.icon}
+            </a>
+          ))}
         </div>
       </div>
 
