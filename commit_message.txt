@@ -1,8 +1,5 @@
-🧪 add unit tests for SkillBadge component
+🧪 [testing improvement] Add tests for Contact Section Component
 
-🎯 What: Added unit tests for SkillBadge UI component in src/components/ui/SkillBadge.test.jsx.
-📊 Coverage:
-- Verified rendering of the skill name.
-- Verified element tag (span) and CSS class styling.
-- Verified graceful handling of empty or missing props.
-✨ Result: Improved test coverage and reliability for UI components.
+🎯 What: Added a missing test file for the `Contact` component to verify its rendering and links.
+📊 Coverage: Added tests to verify the rendering of the section title, text elements, contact values extracted from `personalData`, and verified the `href` attributes for the email, GitHub, and LinkedIn links.
+✨ Result: The test suite now covers the `Contact` component.
