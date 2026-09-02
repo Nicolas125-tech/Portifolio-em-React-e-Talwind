@@ -49,8 +49,8 @@ export const experience = [
     id: 2,
     role: "Técnico de Suporte (Help Desk)",
     company: "Helpdesk Londrina",
-    period: "Janeiro 2026 - Atual",
-    isCurrent: true,
+    period: "Jan 2026 - Maio 2026",
+    isCurrent: false,
     description: "Suporte técnico de hardware e software. Manutenção preventiva e corretiva de computadores. Diagnóstico e resolução de problemas em redes e sistemas operacionais."
   },
   {
