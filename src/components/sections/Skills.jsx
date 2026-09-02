@@ -1,4 +1,4 @@
-import { Code, Layout, Server, Wrench } from 'lucide-react';
+import { Code, Layout, Server, Wrench, Smartphone, Cpu } from 'lucide-react';
 import { skills } from '../../data/personalData';
 import { SectionTitle } from '../ui/SectionTitle';
 import { GlassCard } from '../ui/GlassCard';
@@ -23,6 +23,18 @@ const skillCategories = [
     icon: Server,
     items: skills.backend,
     gradient: 'from-emerald-500 to-teal-500',
+  },
+  {
+    title: 'Desenvolvimento Mobile',
+    icon: Smartphone,
+    items: skills.mobile,
+    gradient: 'from-indigo-500 to-blue-500',
+  },
+  {
+    title: 'IA & Visão Computacional',
+    icon: Cpu,
+    items: skills.ai,
+    gradient: 'from-red-500 to-rose-500',
   },
   {
     title: 'Ferramentas & Tecnologias',

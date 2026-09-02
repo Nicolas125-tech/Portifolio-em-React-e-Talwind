@@ -9,7 +9,7 @@ export const personalData = {
   linkedin: "https://www.linkedin.com/in/nicolas-mandarino-bissoqui-7787761b8",
   github: "https://github.com/nicolas125-tech",
   portfolio: "https://nicolas125-tech.github.io/Portifolio-em-React-e-Talwind/",
-  about: "Estudante de Engenharia de Software, desenvolvo aplicações web. Tenho experiência com JavaScript, TypeScript, React, Node.js, Java e SQL na criação de projetos full stack. Busco evoluir na área de desenvolvimento, pipelines de CI/CD e arquitetura de software.",
+  about: "Sou um Desenvolvedor Full Stack e estudante do 3º ano de Engenharia de Software. Desenvolvo aplicações web, desde o banco de dados até o frontend, e me interesso por Inteligência Artificial aplicada e Arquitetura de Sistemas. Trabalho como Analista Técnico Computacional na Ágili Software, onde atuo na manutenção e suporte de sistemas. Essa experiência diária me ajuda a analisar e resolver problemas técnicos com agilidade.",
   birthDate: "01/03/2005",
   nationality: "Brasileiro",
   cnh: "Categoria B",
@@ -20,10 +20,12 @@ export const personalData = {
 };
 
 export const skills = {
-  languages: ["JavaScript", "TypeScript", "C#", "Java", "Python", "PHP", "SQL"],
-  frontend: ["React", "Angular", "HTML5", "CSS3", "Tailwind CSS"],
-  backend: ["Node.js", "Express", "Spring Boot", "Laravel", "APIs RESTful"],
-  toolsAndTech: ["Git", "MySQL", "PostgreSQL", "Docker", "AWS", "CI/CD", "Swagger", "Testes de Software", "Noções de Engenharia de Dados", "Segurança da Informação"]
+  languages: ["JavaScript", "TypeScript", "C#", "Java", "Python", "Kotlin", "SQL"],
+  frontend: ["React", "Next.js", "Angular", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
+  backend: ["Node.js", "FastAPI", "Spring Boot", "ASP.NET MVC", "APIs RESTful"],
+  mobile: ["React Native", "Kotlin"],
+  ai: ["OpenCV", "YOLOv8"],
+  toolsAndTech: ["Git", "PostgreSQL", "MongoDB", "Redis", "MySQL", "Docker", "GitHub Actions", "CI/CD", "AWS"]
 };
 
 export const education = [
@@ -72,13 +74,15 @@ export const allCertifications = [
     ]
   },
   {
-    category: "Ecossistema JavaScript & Front-end",
+    category: "Ecossistema JavaScript, Front-end & Mobile",
     items: [
       "Full Stack JavaScript - OneBitCode",
+      "Ignite React/Node - Rocketseat",
       "Formação ReactJS & NodeJS - Rocketseat",
       "Angular and TypeScript - Dener Troquatte",
       "Especialista Front-End - EBAC",
-      "Modern JavaScript ES6 for React - Udemy"
+      "Modern JavaScript ES6 for React - Udemy",
+      "Formação Android com Kotlin - Rocketseat"
     ]
   },
   {
@@ -86,16 +90,20 @@ export const allCertifications = [
     items: [
       "Full Cycle 3.0 - FullCycle",
       "Especialista Back-End Java - EBAC",
+      "Formação Java - Rocketseat",
       "Ignite Java - Rocketseat",
       "Advanced Java - SoftBlue",
       "Treinamento Java EmpregaTech - Senac Londrina",
-      "Laravel PHP / Full Stack PHP Developer - Udemy / UpInside"
+      "Laravel PHP / Full Stack PHP Developer - Udemy / UpInside",
+      "Formação em C# - Rocketseat"
     ]
   },
   {
     category: "Dados, Inteligência Artificial & Qualidade",
     items: [
       "Ignite AI Development - Rocketseat",
+      "Deep Learning for Computer Vision with Python - PyImageSearch",
+      "Python 3 Deep Dive - Udemy / Fred Baptista",
       "Engenheiro de Qualidade de Software - EBAC",
       "SQL Impressionador - Hashtag Treinamentos",
       "Data Engineering Bootcamp - IGTI",
@@ -107,19 +115,19 @@ export const allCertifications = [
 
 export const projects = [
   {
-    id: 2,
+    id: 1,
     title: "ChikGuard",
-    description: "Monitoramento por IoT e visão computacional para aviários. Utiliza uma API em Python, plugins de IA, painel administrativo e gera relatórios automáticos. Arquitetura baseada em microsserviços com Docker.",
-    tech: ["Python", "React", "Node.js", "Docker", "Supabase", "OpenCV"],
+    description: "Monitoramento utilizando IA na borda (Edge Computing) e Visão Computacional para analisar a saúde de aves em granjas.",
+    tech: ["Python", "FastAPI", "React", "React Native", "MongoDB", "PostgreSQL", "Docker", "YOLOv8", "OpenCV"],
     githubUrl: "https://github.com/Nicolas125-tech/ChikGuard-Original",
     featured: true,
     badgeText: "Principal Destaque"
   },
   {
-    id: 1,
-    title: "AssistênciaTech",
-    description: "Sistema de gestão para assistência técnica. Possui um portal público para o cliente consultar a OS e um painel para os técnicos gerenciarem serviços, visualizarem métricas e emitirem recibos em PDF.",
-    tech: ["C#", ".NET 8", "ASP.NET Core MVC", "SQLite", "Docker", "Bootstrap"],
+    id: 2,
+    title: "TechOS",
+    description: "Sistema para gerenciar Ordens de Serviço (OS) em assistências técnicas, com foco em interface responsiva.",
+    tech: ["C#", ".NET 8", "ASP.NET MVC", "PostgreSQL", "Redis", "Docker", "Bootstrap"],
     githubUrl: "https://github.com/Nicolas125-tech/AssistenciaTech",
     featured: true,
     badgeText: "Destaque"
@@ -127,9 +135,18 @@ export const projects = [
   {
     id: 3,
     title: "TripPlanner",
-    description: "Aplicação para planejar roteiros, atividades diárias e despesas, e coordenar viagens de forma colaborativa.",
-    tech: ["React", "Java", "Spring Boot", "Tailwind CSS", "MySQL", "APIs RESTful"],
+    description: "Aplicação para planejar e gerenciar rotas de viagens, integrando backend em Java e frontend em React.",
+    tech: ["Java", "Spring Boot", "React", "Tailwind CSS", "MySQL"],
     githubUrl: "https://github.com/Nicolas125-tech/TripPlanner-React-e-Java",
+    featured: true,
+    badgeText: "Destaque"
+  },
+  {
+    id: 4,
+    title: "AgroTrace",
+    description: "Sistema B2B para rastreamento de cargas de alto valor com funcionamento offline. Conecta dispositivos IoT ao aplicativo móvel e suporta grande volume de dados.",
+    tech: ["Python", "FastAPI", "Next.js", "React Native", "PostgreSQL", "Docker"],
+    githubUrl: "https://github.com/Nicolas125-tech/AgroTrace",
     featured: true,
     badgeText: "Destaque"
   }
