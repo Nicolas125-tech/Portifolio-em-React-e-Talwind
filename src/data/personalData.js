@@ -9,7 +9,7 @@ export const personalData = {
   linkedin: "https://www.linkedin.com/in/nicolas-mandarino-bissoqui-7787761b8",
   github: "https://github.com/nicolas125-tech",
   portfolio: "https://nicolas125-tech.github.io/Portifolio-em-React-e-Talwind/",
-  about: "Estudante de Engenharia de Software focado no desenvolvimento de aplicações web modernas. Possuo sólida base prática em JavaScript, TypeScript, React, Node.js, Java e bases de dados (SQL). Tenho experiência na criação de projetos full stack e forte interesse em evoluir na área de desenvolvimento de software, Pipeline de entrega contínua e arquiteturas eficientes.",
+  about: "Estudante de Engenharia de Software, desenvolvo aplicações web. Tenho experiência com JavaScript, TypeScript, React, Node.js, Java e SQL na criação de projetos full stack. Busco evoluir na área de desenvolvimento, pipelines de CI/CD e arquitetura de software.",
   birthDate: "01/03/2005",
   nationality: "Brasileiro",
   cnh: "Categoria B",
@@ -43,7 +43,7 @@ export const experience = [
     company: "Agili Software",
     period: "Maio 2026 - Atual",
     isCurrent: true,
-    description: "Análise, diagnóstico e resolução de problemas técnicos e lógicos em sistemas de software. Suporte técnico avançado, auxiliando na utilização das soluções tecnológicas da empresa. Elaboração de consultas e manipulação de base de dados (SQL) para análise de cenários e correção de falhas. Interação com a equipe de desenvolvimento para reporte de bugs e melhoria contínua dos sistemas."
+    description: "Suporte técnico auxiliando no uso dos sistemas da empresa. Analiso e resolvo problemas, crio consultas no banco de dados (SQL) para encontrar falhas e interajo com os desenvolvedores para relatar bugs e propor melhorias."
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ export const experience = [
     company: "Helpdesk Londrina",
     period: "Janeiro 2026 - Atual",
     isCurrent: true,
-    description: "Prestação de suporte técnico de hardware e software para utilizadores. Manutenção preventiva e corretiva de computadores. Diagnóstico e resolução de problemas em redes e sistemas operativos."
+    description: "Suporte técnico de hardware e software. Manutenção preventiva e corretiva de computadores. Diagnóstico e resolução de problemas em redes e sistemas operacionais."
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ export const experience = [
     company: "Espaço Musical",
     period: "Janeiro 2023 - Outubro 2025",
     isCurrent: false,
-    description: "Lecionou aulas de violino e piano, desenvolvendo materiais didáticos personalizados. Condução de ensaios e prática de orquestra com grupos de alunos."
+    description: "Aulas de violino e piano com materiais didáticos personalizados. Condução de ensaios e prática de orquestra com os alunos."
   }
 ];
 
@@ -109,7 +109,7 @@ export const projects = [
   {
     id: 2,
     title: "ChikGuard",
-    description: "Sistema IoT e Web de monitoramento inteligente para aviários utilizando visão computacional. Conta com API Python robusta, sistema de plugins de IA, painel de administração e relatórios automatizados, rodando com microsserviços via Docker.",
+    description: "Monitoramento por IoT e visão computacional para aviários. Utiliza uma API em Python, plugins de IA, painel administrativo e gera relatórios automáticos. Arquitetura baseada em microsserviços com Docker.",
     tech: ["Python", "React", "Node.js", "Docker", "Supabase", "OpenCV"],
     githubUrl: "https://github.com/Nicolas125-tech/ChikGuard-Original",
     featured: true,
@@ -118,7 +118,7 @@ export const projects = [
   {
     id: 1,
     title: "AssistênciaTech",
-    description: "Sistema completo de gestão para assistência técnica. Inclui portal público moderno com consulta de OS para clientes e um painel backoffice seguro para técnicos gerenciarem ordens de serviço, dashboard analítico e emissão automatizada de recibos em PDF.",
+    description: "Sistema de gestão para assistência técnica. Possui um portal público para o cliente consultar a OS e um painel para os técnicos gerenciarem serviços, visualizarem métricas e emitirem recibos em PDF.",
     tech: ["C#", ".NET 8", "ASP.NET Core MVC", "SQLite", "Docker", "Bootstrap"],
     githubUrl: "https://github.com/Nicolas125-tech/AssistenciaTech",
     featured: true,
@@ -127,7 +127,7 @@ export const projects = [
   {
     id: 3,
     title: "TripPlanner",
-    description: "Plataforma completa para planejamento e controle de viagens. Permite criar roteiros diários, organizar atividades, gerenciar orçamentos/despesas integradas e coordenar participantes de forma colaborativa.",
+    description: "Aplicação para planejar roteiros, atividades diárias e despesas, e coordenar viagens de forma colaborativa.",
     tech: ["React", "Java", "Spring Boot", "Tailwind CSS", "MySQL", "APIs RESTful"],
     githubUrl: "https://github.com/Nicolas125-tech/TripPlanner-React-e-Java",
     featured: true,

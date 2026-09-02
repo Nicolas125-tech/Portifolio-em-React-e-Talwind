@@ -39,7 +39,7 @@ export const Skills = () => {
         <AnimatedSection>
           <SectionTitle
             title="Habilidades Técnicas"
-            subtitle="Tecnologias e ferramentas que domino no dia a dia"
+            subtitle="Tecnologias e ferramentas que utilizo"
           />
         </AnimatedSection>
 

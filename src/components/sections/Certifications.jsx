@@ -34,7 +34,7 @@ export const Certifications = () => {
         <AnimatedSection>
           <SectionTitle
             title="Cursos & Certificações"
-            subtitle="Investimento contínuo em aprendizado e atualização profissional"
+            subtitle="Meus cursos e certificados"
           />
         </AnimatedSection>
 

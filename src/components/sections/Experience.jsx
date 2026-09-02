@@ -10,7 +10,7 @@ export const Experience = () => {
         <AnimatedSection>
           <SectionTitle
             title="Experiência Profissional"
-            subtitle="Minha trajetória profissional e crescimento na área de tecnologia"
+            subtitle="Minhas experiências profissionais"
           />
         </AnimatedSection>
 

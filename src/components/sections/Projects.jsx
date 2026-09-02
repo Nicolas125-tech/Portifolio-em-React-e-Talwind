@@ -11,7 +11,7 @@ export const Projects = () => {
         <AnimatedSection>
           <SectionTitle
             title="Projetos"
-            subtitle="Aplicações que desenvolvi para demonstrar minhas habilidades"
+            subtitle="Algumas aplicações que desenvolvi"
           />
         </AnimatedSection>
 

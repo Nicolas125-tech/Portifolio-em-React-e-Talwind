@@ -50,7 +50,7 @@ export const Contact = () => {
         <AnimatedSection>
           <SectionTitle
             title="Entre em Contato"
-            subtitle="Estou disponível para novas oportunidades e projetos"
+            subtitle="Disponível para novas oportunidades e projetos"
           />
         </AnimatedSection>
 
@@ -89,10 +89,10 @@ export const Contact = () => {
             <GlassCard className="h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-bold text-dark-100 mb-2">
-                  Vamos construir algo incrível juntos?
+                  Vamos construir algo juntos?
                 </h3>
                 <p className="text-dark-400 text-sm leading-relaxed mb-8">
-                  Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte de um time incrível.
+                  Estou aberto a discutir projetos, ideias ou oportunidades de trabalho.
                 </p>
               </div>
 

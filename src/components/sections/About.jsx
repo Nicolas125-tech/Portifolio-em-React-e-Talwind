@@ -15,7 +15,7 @@ export const About = () => {
         <AnimatedSection>
           <SectionTitle
             title="Sobre Mim"
-            subtitle="Conheça um pouco mais sobre minha trajetória e objetivos"
+            subtitle="Minha trajetória e objetivos"
           />
         </AnimatedSection>
 
